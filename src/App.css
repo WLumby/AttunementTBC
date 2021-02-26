@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   background-color: #282c34;
-  min-width: 1000px;
+  /* min-width: 1500px; */
 }
 
 .Header {
@@ -28,5 +28,6 @@
 }
 
 .Chart-row {
-  padding: 75px;
+  padding-top: 75px;
+  padding-bottom: 75px;
 }
