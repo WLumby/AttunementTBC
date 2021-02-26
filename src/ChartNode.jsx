@@ -4,8 +4,6 @@ import { ArcherElement } from 'react-archer';
 import './ChartNode.css';
 
 class ChartNode extends React.Component {
-    
-    
     render = () => {
         return (
             <ArcherElement id={this.props.id} relations={this.props.relations}>
