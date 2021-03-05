@@ -6,6 +6,7 @@ import './ChartNode.css';
 class ChartNode extends React.Component {
     
     relations = [];
+    clicked = false;
     
     render = () => {
         return (
@@ -29,10 +30,14 @@ class ChartNode extends React.Component {
     }
 
     click = () => {
-        this.relations.forEach((relation) => {
-            document.getElementById(relation).style = "background-color:rgb(72, 190, 240);"
-        })
-        document.getElementById(this.props.id + '-text').style = "background-color:lightgreen";
+        if (!this.clicked) {
+            this.relations.forEach((relation) => {
+                document.getElementById(relation).style = "background-color:rgb(72, 190, 240);"
+            })
+            document.getElementById(this.props.id + '-text').style = "background-color:lightgreen";
+            
+            this.clicked = true;
+        }
     }
 }
 
