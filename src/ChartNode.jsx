@@ -6,6 +6,12 @@ import './ChartNode.css';
 class ChartNode extends React.Component {
     
     relations = [];
+
+    getCurrentColor = () => document.getElementById(this.props.id + '-text').style.backgroundColor
+    setCurrentColor = (color) => document.getElementById(this.props.id + '-text').style = `background-color:${color}`;
+
+    getTargetColor = (target) => document.getElementById(target).style.backgroundColor
+    setTargetColor = (target, color) => document.getElementById(target).style = `background-color:${color}`;
     
     render = () => {
         return (
@@ -22,17 +28,20 @@ class ChartNode extends React.Component {
     componentDidMount = () => {
         if (this.props.relations) {
             this.props.relations.forEach((relation) => {
-                this.relations.push(relation.targetId + '-text')
-                document.getElementById(relation.targetId + '-text').style = "background-color:grey;"
+                const relationTextId = relation.targetId + '-text';
+                this.relations.push(relationTextId)
+                this.setTargetColor(relationTextId, "grey" )
             })
         }
     }
 
     click = () => {
-        this.relations.forEach((relation) => {
-            document.getElementById(relation).style = "background-color:rgb(72, 190, 240);"
-        })
-        document.getElementById(this.props.id + '-text').style = "background-color:lightgreen";
+        if (this.getCurrentColor() !== 'grey') {
+            this.relations.forEach((relation) => {
+                this.setTargetColor(relation, "rgb(72, 190, 240)")
+            })
+            this.setCurrentColor('lightgreen');
+        }
     }
 }
 
