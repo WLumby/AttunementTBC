@@ -1,11 +1,11 @@
-.ChartNode {
+.Chart-node {
     background-color: rgb(72, 190, 240);
     border-radius: 25px;
     margin: 2.1%;
     padding: 1%;
 }
 
-.ChartNodeText {
+.Chart-node-text {
     color: white;
     font-weight: bold;
     font-size: 1.5vw;

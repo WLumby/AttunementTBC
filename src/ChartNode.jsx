@@ -6,13 +6,12 @@ import './ChartNode.css';
 class ChartNode extends React.Component {
     
     relations = [];
-    clicked = false;
     
     render = () => {
         return (
             <ArcherElement id={this.props.id} relations={this.props.relations}>
-                <span onClick={this.click} id={`${this.props.id}-text`}className='ChartNode'>
-                    <span className='ChartNodeText'>
+                <span onClick={this.click} id={`${this.props.id}-text`}className='Chart-node'>
+                    <span className='Chart-node-text'>
                         {this.props.nodeText}
                     </span>
                 </span>
@@ -30,14 +29,10 @@ class ChartNode extends React.Component {
     }
 
     click = () => {
-        if (!this.clicked) {
-            this.relations.forEach((relation) => {
-                document.getElementById(relation).style = "background-color:rgb(72, 190, 240);"
-            })
-            document.getElementById(this.props.id + '-text').style = "background-color:lightgreen";
-            
-            this.clicked = true;
-        }
+        this.relations.forEach((relation) => {
+            document.getElementById(relation).style = "background-color:rgb(72, 190, 240);"
+        })
+        document.getElementById(this.props.id + '-text').style = "background-color:lightgreen";
     }
 }
 
